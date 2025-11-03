@@ -30,8 +30,15 @@ app.add_middleware(
 )
 
 
-@app.get("/", tags=["Health"], summary="Health Check", description="Simple health endpoint.")
+# PUBLIC_INTERFACE
+@app.get("/", tags=["Health"], summary="Health Check", description="Simple health endpoint that returns a basic status payload.")
 def health_check():
+    """
+    Health endpoint for uptime checks.
+
+    Returns:
+        dict: A JSON payload indicating the service is up.
+    """
     return {"message": "Healthy"}
 
 
